@@ -1,0 +1,38 @@
+Unidad 1: Constraints, Roles e Indices (3 semanas)
+---------
+1) Introducción
+2) Integridad de datos
+3) Constraint NOT NULL
+4) Constraint UNIQUE
+5) Constraint DEFAULT
+6) Constraint CHECK
+7) Constraint PRIMARY KEY
+8) Constraint FOREING KEY
+9) Privilegios/Roles: GRANT/REVOKE
+10) Indices
+
+
+
+Unidad 2: Vistas (1 semana)
+---------
+1) ¿Qué son las vistas?
+2) Ventajas/Desventajas
+3) Creación de vistas
+
+
+Unidad 3: Stored Procedures (2 semanas)
+---------
+1) ¿Qué son los procedimientos almacenados?
+2) Ventajas/Desventajas
+3) Creación de procedimientos almacenados
+4) Usando parámetros en procedimientos almacenados
+5) Manejo de errores
+
+
+Unidad 4: Triggers (2 semanas)
+---------
+1) ¿Qué son los triggers?
+2) Ventajas/Desventajas
+3) Creación de triggers
+
+
