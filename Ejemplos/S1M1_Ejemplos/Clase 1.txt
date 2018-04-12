@@ -1,0 +1,4 @@
+ADICIONAR CAMPO A TABLA:
+------------------------
+ALTER TABLE tbm_pacientes
+ADD tx_estCiv CHAR(1)

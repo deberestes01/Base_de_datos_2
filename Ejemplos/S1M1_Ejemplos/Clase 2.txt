@@ -1,0 +1,27 @@
+COMENTARIOS DE CAMPOS:
+----------------------
+--Agregar comentarios a campos:
+EXEC sys.sp_addextendedproperty
+@name = N'MS_Description', @value = 'Estado civil. Posibles valores: S=Soltero, C=Casado,D=Divorciado, V=Viudo, U=Unión libre.',
+@level0type = N'Schema', @level0name = 'dbo',
+@level1type = N'Table', @level1name = 'tbm_pacientes', 
+@level2type = N'Column', @level2name = 'tx_estCiv'
+
+
+EXEC sp_dropextendedproperty   
+@name = N'MS_Description',
+@level0type = N'Schema', @level0name = 'dbo',
+@level1type = N'Table', @level1name = 'tbm_pacientes', 
+@level2type = N'Column', @level2name = 'tx_estCiv'
+
+EXEC sys.sp_addextendedproperty
+@name = N'MS_Description', @value = 'Teléfono convencional',
+@level0type = N'Schema', @level0name = 'dbo',
+@level1type = N'Table', @level1name = 'tbm_pacientes', 
+@level2type = N'Column', @level2name = 'tx_telCon'
+
+EXEC sp_dropextendedproperty   
+@name = N'MS_Description',
+@level0type = N'Schema', @level0name = 'dbo',
+@level1type = N'Table', @level1name = 'tbm_pacientes', 
+@level2type = N'Column', @level2name = 'tx_telCon'

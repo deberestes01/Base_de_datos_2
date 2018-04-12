@@ -1,0 +1,16 @@
+CONSTRAINT DEFAULT:
+-------------------
+ALTER TABLE tbm_pacientes
+ADD DEFAULT 'S' FOR tx_estCiv 
+
+
+
+INSERT INTO tbm_pacientes(co_pac, tx_ced, tx_nom, tx_ape, fe_nac)
+VALUES(8, '0988888888', 'ALEX JOSE', 'JAIME LINDAO', '1988/08/03')
+
+
+ALTER TABLE tbm_pacientes
+ADD tx_tipSeg CHAR(1) DEFAULT 'N' NOT NULL
+
+ALTER TABLE tbm_pacientes
+ADD ne_numTotCit SMALLINT DEFAULT 0 NOT NULL

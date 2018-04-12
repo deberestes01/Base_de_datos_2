@@ -1,0 +1,32 @@
+CONSTRAINT UNIQUE:
+-------------------
+CREATE TABLE tbm_medicos
+(
+	co_med int,
+	tx_ced char(10) NOT NULL UNIQUE,
+	tx_nom varchar(30),
+	tx_ape varchar(30)
+);
+
+EXEC sp_help "tbm_medicos"
+
+
+DROP TABLE tbm_medicos;
+
+
+CREATE TABLE tbm_medicos
+(
+	co_med int,
+	tx_ced char(10) NOT NULL,
+	tx_nom varchar(30),
+	tx_ape varchar(30),
+	CONSTRAINT CU_tbm_medicos UNIQUE (tx_ced)
+);
+
+
+ALTER TABLE tbm_medicos
+DROP CONSTRAINT CU_tbm_medicos;
+
+
+ALTER TABLE tbm_medicos
+ADD CONSTRAINT CU_tbm_medicos UNIQUE (tx_ced);

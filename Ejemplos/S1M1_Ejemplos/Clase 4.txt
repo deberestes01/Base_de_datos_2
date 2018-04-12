@@ -1,0 +1,3 @@
+CONSULTAR DISEÑO DE TABLA:
+--------------------------
+EXEC sp_help 'tbm_pacientes';
