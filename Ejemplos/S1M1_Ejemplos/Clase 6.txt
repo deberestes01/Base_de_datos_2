@@ -1,0 +1,13 @@
+SELECT * FROM tbm_medicos;
+
+DELETE FROM tbm_medicos
+WHERE co_med=2
+
+SELECT * FROM tbm_citas
+
+UPDATE tbm_medicos
+SET co_med=300
+WHERE co_med=3
+
+
+2	0902020202	Steven	Chilán

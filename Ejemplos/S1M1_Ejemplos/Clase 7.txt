@@ -1,0 +1,24 @@
+https://www.w3schools.com/sql/sql_primarykey.asp
+
+CREATE TABLE tbm_ciudades (
+    co_ciu SMALLINT PRIMARY KEY,
+    tx_nom VARCHAR(60) NOT NULL,
+    st_reg CHAR(1)
+);
+
+EXEC sp_help "tbm_ciudades"
+DROP TABLE tbm_ciudades
+
+CREATE TABLE tbm_ciudades (
+    co_ciu SMALLINT,
+    tx_nom VARCHAR(60) NOT NULL,
+    st_reg CHAR(1),
+    CONSTRAINT PK_tbm_ciudades PRIMARY KEY (co_ciu)
+);
+
+ALTER TABLE tbm_ciudades
+DROP CONSTRAINT PK_tbm_ciudades;
+
+ALTER TABLE tbm_ciudades
+ADD CONSTRAINT PK_tbm_ciudades PRIMARY KEY (co_ciu);
+
