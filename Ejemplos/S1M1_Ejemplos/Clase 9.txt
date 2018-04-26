@@ -1,0 +1,39 @@
+GRANT/REVOKE:
+-------------
+https://www.techonthenet.com/sql_server/grant_revoke.php
+https://docs.microsoft.com/es-es/sql/t-sql/statements/grant-database-permissions-transact-sql?view=sql-server-2017
+
+
+--Crear usuario para Login.
+CREATE LOGIN user01 
+WITH PASSWORD = 'key.u01';
+
+--Abrir otro SQL Server Management Studio.
+--Probar la conexión con el nuevo usuario.
+--Se debe elegir la autenticación del SQL Server.
+--Ya se debe poder conectar pero todavía no se tiene acceso a nada.
+
+--Crear usuario para login y para base de datos.
+--Formato:
+--CREATE USER usuario_base_de_datos
+--FOR LOGIN usuario_login;
+--Nota.- El usuario de login no necesariamente debe ser igual al usuario de base de datos.
+
+--Primero hay que ubicarse en la base de datos donde se va a crear el usuario.
+USE S1M1_CitasMedicas;
+
+--Luego se crea el usuario.
+CREATE USER user01
+FOR LOGIN user01;
+
+--Probar en el "SQL Server Management Studio".
+--Ya se debe poder acceder a la base de datos "S1M1_CitasMedicas".
+--Pero todavía no hay acceso a nada.
+--Abrir una ventana de query y ejecutar:
+--SELECT * FROM tbm_ciudades
+--Debe salir que no hay acceso.
+
+GRANT SELECT ON tbm_ciudades TO user01;
+
+--Ir a la otra ventana del "SQL Server Management Studio" y probar la sentencia SELECT.
+--Ya deben salir los datos.

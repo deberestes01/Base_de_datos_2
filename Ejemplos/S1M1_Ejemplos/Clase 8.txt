@@ -1,0 +1,97 @@
+https://www.w3schools.com/sql/sql_foreignkey.asp
+
+CREATE TABLE tbm_paises (
+    co_pai SMALLINT,
+    tx_nom VARCHAR(60) NOT NULL,
+    st_reg CHAR(1),
+    CONSTRAINT PK_tbm_paises PRIMARY KEY (co_pai)
+)
+
+DROP TABLE tbm_ciudades
+
+CREATE TABLE tbm_ciudades (
+    co_ciu SMALLINT,
+    tx_nom VARCHAR(60) NOT NULL,
+    co_pai SMALLINT FOREIGN KEY REFERENCES tbm_paises(co_pai),
+    st_reg CHAR(1),
+    CONSTRAINT PK_tbm_ciudades PRIMARY KEY (co_ciu)
+);
+
+
+DROP TABLE tbm_ciudades
+
+
+CREATE TABLE tbm_ciudades (
+    co_ciu SMALLINT,
+    tx_nom VARCHAR(60) NOT NULL,
+    co_pai SMALLINT,
+    st_reg CHAR(1),
+    CONSTRAINT PK_tbm_ciudades PRIMARY KEY (co_ciu),
+    CONSTRAINT FK_tbm_ciudades_tbm_paises 
+    FOREIGN KEY (co_pai) REFERENCES tbm_paises(co_pai)
+);
+
+EXEC sp_help "tbm_ciudades"
+
+ALTER TABLE tbm_ciudades
+DROP CONSTRAINT FK_tbm_ciudades_tbm_paises;
+
+ALTER TABLE tbm_ciudades
+ADD CONSTRAINT FK_tbm_ciudades_tbm_paises
+FOREIGN KEY (co_pai) REFERENCES tbm_paises(co_pai);
+
+
+
+ALTER TABLE tbm_ciudades
+DROP CONSTRAINT FK_tbm_ciudades_tbm_paises;
+
+ALTER TABLE tbm_ciudades
+ADD CONSTRAINT FK_tbm_ciudades_tbm_paises
+FOREIGN KEY (co_pai) REFERENCES tbm_paises(co_pai)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+UPDATE tbm_paises
+SET co_pai=200
+WHERE co_pai=2
+
+DELETE FROM tbm_paises
+WHERE co_pai=2
+
+
+
+
+
+ALTER TABLE tbm_ciudades
+DROP CONSTRAINT FK_tbm_ciudades_tbm_paises;
+
+ALTER TABLE tbm_ciudades
+ADD CONSTRAINT FK_tbm_ciudades_tbm_paises
+FOREIGN KEY (co_pai) REFERENCES tbm_paises(co_pai)
+ON UPDATE CASCADE ON DELETE CASCADE;
+
+UPDATE tbm_paises
+SET co_pai=200
+WHERE co_pai=2
+
+DELETE FROM tbm_paises
+WHERE co_pai=6
+
+
+
+
+
+
+ALTER TABLE tbm_ciudades
+DROP CONSTRAINT FK_tbm_ciudades_tbm_paises;
+
+ALTER TABLE tbm_ciudades
+ADD CONSTRAINT FK_tbm_ciudades_tbm_paises
+FOREIGN KEY (co_pai) REFERENCES tbm_paises(co_pai)
+ON UPDATE SET NULL ON DELETE SET NULL;
+
+UPDATE tbm_paises
+SET co_pai=2
+WHERE co_pai=200
+
+DELETE FROM tbm_paises
+WHERE co_pai=4
