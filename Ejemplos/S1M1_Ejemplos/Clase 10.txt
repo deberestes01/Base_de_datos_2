@@ -1,0 +1,52 @@
+Usuario administrador:
+----------------------
+
+GRANT INSERT ON tbm_ciudades TO user01;
+GRANT UPDATE ON tbm_ciudades TO user01;
+
+GRANT SELECT, INSERT, UPDATE 
+ON tbm_paises TO user01;
+
+REVOKE UPDATE 
+ON tbm_paises FROM user01;
+
+REVOKE ALL 
+ON tbm_paises FROM user01;
+
+GRANT ALL
+ON tbm_paises TO user01;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Usuario "User01":
+-----------------
+
+SELECT * FROM tbm_ciudades
+
+UPDATE tbm_ciudades
+SET tx_nom='Milagro'
+WHERE co_ciu=11
+
+SELECT * FROM tbm_paises
+
+INSERT INTO tbm_paises
+VALUES(6, 'Argentina', 'A');
+
+UPDATE tbm_paises
+SET tx_nom='Paraguay'
+WHERE co_pai=6;
+
+DELETE FROM tbm_paises
+WHERE co_pai=6;
