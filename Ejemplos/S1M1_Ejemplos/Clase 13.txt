@@ -1,0 +1,12 @@
+CREATE PROCEDURE sp_consultaCiudades01
+AS
+SELECT * FROM tbm_ciudades;
+
+
+EXEC sp_consultaCiudades01;
+
+
+ALTER PROCEDURE sp_consultaCiudades01
+AS
+SELECT * FROM tbm_ciudades
+ORDER BY tx_nom DESC

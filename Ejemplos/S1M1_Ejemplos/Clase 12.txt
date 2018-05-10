@@ -1,0 +1,46 @@
+SELECT * FROM tbm_pacientes;
+SELECT * FROM tbm_citas;
+SELECT * FROM tbm_ciudades;
+
+CREATE VIEW vw_ciudades01
+AS
+SELECT co_ciu, tx_nom
+FROM tbm_ciudades;
+
+SELECT * FROM vw_ciudades01;
+
+DROP VIEW vw_ciudades01;
+
+CREATE VIEW vw_ciudades01
+AS
+SELECT co_ciu, tx_nom, st_reg
+FROM tbm_ciudades;
+
+CREATE VIEW vw_paises_ciudades01
+AS
+SELECT a1.tx_nom AS tx_nomPai
+, a2.tx_nom AS tx_nomCiu
+FROM tbm_paises AS a1
+INNER JOIN tbm_ciudades AS a2
+ON (a1.co_pai=a2.co_pai);
+
+SELECT * FROM vw_paises_ciudades01
+ORDER BY tx_nomPai, tx_nomCiu;
+
+
+SELECT * FROM tbm_citas
+
+
+--CREATE VIEW vw_citas01
+ALTER VIEW vw_citas01
+AS
+SELECT a1.co_cit
+, a2.tx_nom AS tx_nomMed
+, a3.tx_nom AS tx_nomPac
+FROM tbm_citas AS a1
+INNER JOIN tbm_medicos AS a2
+ON (a1.co_med=a2.co_med)
+INNER JOIN tbm_pacientes AS a3
+ON (a1.co_pac=a3.co_pac)
+
+SELECT * FROM vw_citas01
