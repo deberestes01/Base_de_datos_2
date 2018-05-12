@@ -1,0 +1,25 @@
+SELECT * FROM tbm_ciudades
+SELECT MAX(co_ciu) FROM tbm_ciudades WHERE st_reg='Z'
+
+SELECT (CASE WHEN MAX(co_ciu) IS NULL 
+THEN 1 ELSE MAX(co_ciu)+1 END) 
+FROM tbm_ciudades WHERE st_reg='Z'
+
+--CREATE PROCEDURE sp_insertarCiudad03
+ALTER PROCEDURE sp_insertarCiudad03
+@p_tx_nom VARCHAR(60)
+,@p_co_pai SMALLINT, @p_st_reg CHAR(1)
+AS
+DECLARE @v_co_ciu SMALLINT
+SET @v_co_ciu=(SELECT (CASE WHEN MAX(co_ciu) IS NULL THEN 1 ELSE MAX(co_ciu)+1 END) FROM tbm_ciudades)
+INSERT INTO tbm_ciudades
+(co_ciu, tx_nom, co_pai, st_reg)
+VALUES (@v_co_ciu, @p_tx_nom
+, @p_co_pai, @p_st_reg)
+
+
+EXEC sp_insertarCiudad03
+'Machala', 1, 'A';
+
+EXEC sp_insertarCiudad03
+'Londres', NULL, 'A';
