@@ -1,0 +1,15 @@
+SELECT * FROM tbm_ciudades
+
+--CREATE PROCEDURE sp_insertarCiudad01
+ALTER PROCEDURE sp_insertarCiudad01
+@p_co_ciu SMALLINT, @p_tx_nom VARCHAR(60)
+,@p_co_pai SMALLINT, @p_st_reg CHAR(1)
+AS
+INSERT INTO tbm_ciudades
+(co_ciu, tx_nom, co_pai, st_reg)
+VALUES (@p_co_ciu, @p_tx_nom
+, @p_co_pai, @p_st_reg)
+
+
+EXEC sp_insertarCiudad01
+12, 'Ambato', 1, 'A';
