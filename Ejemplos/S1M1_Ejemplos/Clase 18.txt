@@ -1,0 +1,19 @@
+SELECT * FROM tbm_paises
+
+CREATE PROCEDURE sp_paises_inserte01
+AS
+BEGIN TRY
+	BEGIN TRAN
+	INSERT INTO tbm_paises(co_pai, tx_nom, st_reg) VALUES (7, 'Argentina', 'A');
+	INSERT INTO tbm_paises(co_pai, tx_nom, st_reg) VALUES (8, 'Uruguay', 'A');
+	INSERT INTO tbm_paises(co_pai, tx_nom, st_reg) VALUES (9, 'Venezuela', 'A');
+	INSERT INTO tbm_paises(co_pai, tx_nom, st_reg) VALUES (7, 'Bolivia', 'A');
+	INSERT INTO tbm_paises(co_pai, tx_nom, st_reg) VALUES (10, 'Chile', 'A');
+	COMMIT
+END TRY
+BEGIN CATCH
+	ROLLBACK
+	PRINT ERROR_MESSAGE()
+END CATCH
+
+EXEC sp_paises_inserte01
